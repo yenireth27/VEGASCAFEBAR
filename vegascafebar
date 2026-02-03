@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Bar | Desayunos y Brunch en Granada</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Montserrat',system-ui,sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+  color:#333;
+  padding-top:70px;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#141010;
+  z-index:100;
+  padding:.8rem;
+  text-align:center;
+}
+
+nav button{
+  background:#1f1717;
+  color:#fff;
+  border:1px solid #c47a4a;
+  padding:.5rem 1.2rem;
+  margin:.2rem;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+nav button:hover,
+nav button.active{
+  background:#c47a4a;
+}
+
+/* SECTIONS */
+section{
+  display:none;
+  padding:5rem 1rem;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* HERO */
+#hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  min-height:100vh;
+ padding-top:120px;
+  background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  text-align:center;
+}
+
+/* LOGO */
+.logo{
+  background:rgba(0,0,0,.65);
+  padding:3rem 3.8rem;
+  border-radius:26px;
+}
+
+.logo h1{
+  font-size:3.8rem;
+  font-weight:800;
+  letter-spacing:.15em;
+}
+
+.logo span{
+  display:block;
+  margin-top:.8rem;
+  font-size:1rem;
+  letter-spacing:.25em;
+  color:#f2c27d;
+}
+
+@media(max-width:600px){
+  .logo h1{font-size:2.6rem;}
+  .logo{padding:2rem;}
+}
+
+/* QR BUTTON */
+.hero-qr{
+  margin-top:2rem;
+  background:linear-gradient(45deg,#c47a4a,#e6b17a);
+  color:#fff;
+  border:none;
+  padding:1rem 3rem;
+  border-radius:45px;
+  font-size:1.1rem;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 14px 35px rgba(0,0,0,.45);
+}
+
+.hero-qr:hover{
+  transform:scale(1.05);
+}
+
+/* TITLES */
+h2{
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:1.5rem;
+}
+
+/* NOSOTROS */
+#info p{
+  max-width:820px;
+  margin:auto;
+  text-align:center;
+  font-size:1.05rem;
+  color:#555;
+  line-height:1.6;
+}
+
+/* MENU */
+.menu-category{
+  margin-bottom:4.5rem;
+}
+
+.menu-category h3{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:2.2rem;
+  color:#5a3a27;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.8rem;
+}
+
+.menu-item{
+  background:#fff;
+  border-radius:20px;
+  padding:1.2rem;
+  text-align:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.1);
+}
+
+.menu-item img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:14px;
+}
+
+.menu-item h4{
+  margin:.8rem 0 .3rem;
+  font-size:1.15rem;
+}
+
+.menu-item p{
+  font-size:.95rem;
+  color:#666;
+}
+
+.price{
+  margin-top:.5rem;
+  font-weight:800;
+  color:#c47a4a;
+}
+
+/* CONTACT */
+#contact{
+  text-align:center;
+}
+
+.instagram-btn{
+  display:inline-block;
+  margin-top:1.2rem;
+  background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);
+  color:#fff;
+  padding:.85rem 2rem;
+  border-radius:35px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* QR */
+#qrBox{
+  display:none;
+  margin-top:2.2rem;
+}
+
+#qrBox img{
+  background:#fff;
+  padding:16px;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+
+/* FOOTER */
+footer{
+  background:#141010;
+  color:#fff;
+  text-align:center;
+  padding:1.5rem;
+}
+</style>
+</head>
+
+
+<body>
+
+<header>
+<nav>
+
+<button onclick="showSection('hero',this)">Inicio</button>
+<button onclick="showSection('info',this)">Nosotros</button>
+<button class="hero-qr" onclick="openQR()">ESCANEAR MENU QR</button>
+<button onclick="showSection('menu',this)">Menu</button>
+<button onclick="showSection('contact',this)">Contacto</button>
+
+</button>
+</nav>
+
+</button>
+</header>
+<section id="hero">
+
+  <div class="logo">
+    <h1>CAFE BAR</h1>
+    <span>DESAYUNOS BRUNCH CAFE</span>
+  </div>
+
+  <img src="image.png" alt="Vegas Cafe Bar" class="hero-image">
+
+  
+</section>
+
+
+<section id="info">
+<h2>Nuestra Esencia</h2>
+<p>
+Creemos que un buen dia empieza con un buen cafe.
+Trabajamos con cafe de calidad, ingredientes frescos y recetas cuidadas al detalle
+para ofrecer desayunos y brunch que invitan a disfrutar sin prisas.
+<br><br>
+Nuestro espacio, en pleno centro de Granada, esta pensado para que te sientas comodo:
+ya sea para empezar la ma&ntilde;ana, quedar con amigos o darte un capricho dulce.
+Aqui vienes a comer bien y a quedarte.
+</p>
+</section>
+
+<section id="menu">
+<h2 data-es="NUESTRO MENU" data-en="Our Menu">NUESTRO MENU</h2>
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1DNA5QxeAqk0GWC0pLJ-AcObVVBl40aTcXg&s">
+</div>
+<h3 data-es="Tostadas Combinadas" data-en="Combined Toasts">Tostadas Combinadas</h3>
+
+
+<div class="menu-list">
+<p><span>Tomate, atun y cherry</span><span class="price">		3,50 &euro;</span></p>
+<p><span>Tomate, jamon y cherry</span><span class="price">			3,00 &euro;</span></p>
+<p><span>Tomate, jamon york y cherry</span><span class="price">		3,00 &euro;</span></p>
+<p><span>Tomate y aguacate</span><span class="price">		3,00 &euro;</span></p>
+<p><span>Tomate y queso fresco</span><span class="price">		3,50 &euro;</span></p>
+<p><span>Aceite y queso fundido</span><span class="price">		3,00 &euro;</span></p>
+<p><span>Huevos revueltos con espinaca</span><span class="price">		3,50 &euro;</span></p>
+<p><span>Queso Philadelphia y aguacate</span><span class="price">		3,50 &euro;</span></p>
+<p><em>Ingrediente extra +1 &euro;</em></p>
+</div>
+</div>
+
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo0txbwZ1xVvHL68qkdpk9EGchio-4DnkBRaePa888Bw&s">
+</div>
+<h3 data-es="Tostadas Premium" data-en=<"Premium Toasts">Tostadas Premium 8,50 &euro;</h3>
+<div class="menu-list">
+<p><span>New York</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Capresa</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Queso feta</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Queso de cabra</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Salmon</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Hummus de remolacha</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Mexicana</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Vegetariana / Vegana</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Iberica</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Mediterranea</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Atun</span><span class="price">	8,50 &euro;</span></p>
+</div>
+</div>
+
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8FyQpayidX3BWcZFWXHDvYc7DBHXts_QDrQ&s">
+</div>
+<h3 data-es="Tortilla Francesa" data-en="French Omelette">Tortilla Francesa 8,50 &euro;</h3>
+<div class="menu-list">
+<p><span>Bacon</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Mozzarella</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Jamon york</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Queso feta</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Jamon serrano</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Queso</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Vegetariana</span><span class="price">	8,50 &euro;</span></p>
+</div>
+</div>
+
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwUMdn_ititek9PPY8UqaUmjCPE5MxAoJxGA&s">
+</div>
+<h3 data-es="Burritos" data-en="Burritos">Burritos 8,50 &euro;</h3>
+<div class="menu-list">
+<p><span>Vegetariano</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Mozzarella</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Huevo</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Pollo</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Jamon york</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Ternera</span><span class="price">	8,50 &euro;</span></p>
+<p><span>Atun</span><span class="price">	8,50 &euro;</span></p>
+</div>
+</div>
+
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReSxvJkvxzx8UyL96mLqRVxkP2rdjqDs9SUQ&s">
+</div>
+<h3 data-es="Arepas Venezolanas (sin gluten)" data-en="Venezuelan Arepas (gluten free)">Arepas Venezolanas 10,50 &euro;</h3>
+<div class="menu-list">
+<p><span>Americana</span><span class="price">	10,50 &euro;</span></p>
+<p><span>Dorada</span><span class="price">	10,50 &euro;</span></p>
+<p><span>Perico</span><span class="price">	10,50 &euro;</span></p>
+<p><span>Pelua</span><span class="price">	10,50 &euro;</span></p>
+<p><span>Reina pepiada</span><span class="price">	10,50 &euro;</span></p>
+<p><span>Caribe</span><span class="price">	10,50 &euro;</span></p>
+<p><span>Criolla</span><span class="price">	10,50 &euro;</span></p>
+<p><span>Sifrina</span><span class="price">	10,50 &euro;</span></p>
+</div>
+</div>
+
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUx0NzOamtFaCYwHblSqkFb0zuMOsgK0P3zA&s">
+</div>
+<h3 data-es="Tortitas" data-en="Tortitas">Tortitas 7,50 &euro;</h3>
+<div class="menu-list">
+<p><span><strong>VEGAS:</strong> Nutella, dulce de leche, nueces,miel y canela</span></p>
+<p><span><strong>MICHELIN:</strong> Nutella, dulce de leche, chocolate,ferrero rocher y lluvia de avellanas caramelizadas</span></p>
+<p><span><strong>EXOTICA:</strong> Mantequilla de cacahuete, platano, miel y canela</span></p>
+<p><span><strong>CHOCO OREO: </strong>Crema de oreo, nutella, chocolate y galleta oreo</span></p>
+<p><span><strong>FRIENDS:</strong> Nutella, leche condensada, lacasitos y bola de helado</span></p>
+<p><span><strong>LOVE:</strong> Nutella, fresa y bola de helado</span></p>
+<p><span><strong>KINDER BUENO:</strong> Nutella, bola de helado y lluvia de chocolate blanco</span></p>
+<p><span><strong>LOTUS:</strong> Bola de helado, sirope de caramelo y galleta lotus </span></p>
+</div>
+</div>
+
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaC6fSPzhtWV6KyxTSZBJUSpUSJ18Dg9tYww&s">
+</div>
+<h3 data-es="Crepes Dulces" data-en="Crepes Dulces">Crepes Dulces 6,50 &euro;</h3>
+<div class="menu-list">
+<p><span>Nutella y oreo</span></p>
+<p><span>Nutella y fresa</span></p>
+<p><span>Nutella y platano</span></p>
+<p><span>Leche condensada y fresa</span></p>
+<p><span>Nutella, ferrero rocher y lluvia de avellanas</span></p>
+<p><span>Nutella, chocolate negro y lluvia de chocolate blanco</span></p>
+<p><span>Nutella, sirope de caramelo y galletas lotus</span></p>
+<p><span>Dulce de leche y nueces></p>
+</div>
+</div>
+
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkEZhi5Js_XiZEmu37H-AHISLvE1hi2LwvPg&s">
+</div>
+<h3 data-es="Gofres" data-en="Gofres">Gofres 4,80 &euro;</h3>
+<div class="menu-list">
+<p><span><strong>ELIGE 2 DE TUS INGREDIENTES FAVORITOS</strong></span></p>
+<p><span>Nutella/sirope de caramelo/sirope de chocolate/sirope de fresa/miel/dulce de leche/oreo/leche condensada/mantequilla de cacahuete/lacasitos/ferrero rocher/helado/nata</span></p>
+<p><span><strong>FRUTAS:</strong> Platano/kiwi/fresa/manzana</span></p>
+</div>
+</div>
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfe3DGuwUJHL2RDEV4h-jJImMdF794AYvXCw&s">
+</div>
+<h3 data-es="Tostadas Dulces" data-en=<"Dulces Toasts">Tostadas Dulces </h3>
+<div class="menu-list">
+<p><span>Nutella y kiwi</span><span class="price">	3,50 &euro;</span></p>
+<p><span>Nutella y fresa</span><span class="price">	3,50 &euro;</span></p>
+<p><span>Nutella y platano</span><span class="price">	3,50 &euro;</span></p>
+<p><span>Platano, miel y canela</span><span class="price">	3,50 &euro;</span></p>
+<p><span>Nutella, fresa y platano</span><span class="price">	4,50 &euro;</span></p>
+<p><span>Nutella, platano y kiwi</span><span class="price">	4,50 &euro;</span></p>
+</div>
+</div>
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyn1ZssUuF3agX1_2M74lzVTNskt0K9V5cBQ&s">
+</div>
+<h3 data-es="Crepes Salados" data-en="Crepes Salados">Crepes Salados 7,80 &euro;</h3>
+<div class="menu-list">
+<p><span><strong>SALMON: </strong>Queso Philadelphia, cebolla morada y aguacate</span></p>
+<p><span><strong>JAMON YORK:</strong> Queso gouda, queso philadelphia y aguacate </span></p>
+<p><span><strong>MOZARELLA:</strong> Queso Philadelphia, espinaca y aguacate </span></p>
+<p><span><strong>JAMON SERRANO:</strong> Huevos revueltos y queso</span></p>
+<p><span><strong>VEGETARIANA:  </strong>Vegetales salteados y aguacateNutella</span></p>
+</div>
+</div>
+
+<div class="menu-category">
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwuPAxq5RvfswaZgW___5mSkEGIk7mv4dbSQ&s">
+</div>
+<h3 data-es="Ensaladas" data-en="Ensaladas">Ensaladas 10,50 &euro;</h3>
+<div class="menu-list">
+<p><span><strong>QUESO FETA:</strong> Espinaca, aguacate, nueces, cebolla morada, ciruelas pasas, manzana y vinagre balsamico</span></p>
+<p><span><strong>ATUN:</strong> Brotes frescos, cebolla morada, maiz, tomate cherry, aceitunas negras, aguacate, alfalfa, pimientos, mix de semillas y vinagre balsamico</span></p>
+<p><span><strong>QUESO DE CABRA: </strong>Brotes frescos, cebolla caramelizada , tomate cherry, miel de ca&ntilde;a, aguacate, alfalfa, nueces y mmix de semillas</span></p>
+</div>
+</div>
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj9GrZWGj0EEN-gIUiEDsmufv2P8apWdDzxQ&s">
+</div>
+<h3 data-es="Bowl Fitness" data-en="Bowl Fitness">Bowl Fitness 7,50 &euro;</h3>
+<div class="menu-list">
+<p><span>Yogurt griego, muesli crocante, frutas frescas, miel, coco rallado y chia</span></p>
+</div>
+</div>
+
+<div class="menu-category">
+<div class="menu-title-img small">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzVgnmIzb8Ic3LmBQGBXXon_NeKTB0b44o9A&s">
+</div>
+<h3 data-es="Platos Combinados" data-en="Platos Combinados">Platos Combinados 12,50 &euro;</h3>
+<div class="menu-list">
+<p><span><strong>PLATO CRIOLLO: </strong>2 Arepitas asadas, alubias negras, carne de ternera deshilachada, aguacate, queso latino rallado, huevo frito</span></p>
+<p><span><strong>PLATO ORIENTAL:</strong> 2 Arepitas asadas,huevo revuelto, pollo desmechado, queso latino rallado y aguacate </span></p>
+<p><span><strong>PLATO AMERICANO:</strong> Panqueques con miel y frutas frescas, bacon, huevo revuelto, con cheddar y aguacate </span></p>
+<p><span><strong>PLATO BRITANO:</strong> Alubias, bacon, salchichas, champi&ntilde;ones salteados, tomate cherry, huevo frito, pan con aceite y ajo</span></p>
+</div>
+</div>
+
+</section>
+<section id="contact">
+<h2>Visitanos</h2>
+<p>
+Calle Gracia 32, Granada<br>
+Telefono 697245373<br>
+Horario de 09:00 a 14:00
+</p>
+
+<a class="instagram-btn" href="https://www.instagram.com/cafe.vegas.granada" target="_blank">
+Instagram
+</a>
+
+<div id="qrBox">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://www.instagram.com/cafe.vegas.granada">
+<p style="margin-top:10px;color:#555;">Escanea para ver el menu</p>
+</div>
+</section>
+
+<footer>
+2026 Vegas Cafe Bar Granada
+</footer>
+
+<script>
+function showSection(id,btn){
+  document.querySelectorAll("section").forEach(s=>s.style.display="none");
+  document.getElementById(id).style.display="block";
+  document.getElementById("qrBox").style.display="none";
+  document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function openQR(){
+  showSection("contact");
+  setTimeout(function(){
+    document.getElementById("qrBox").style.display="block";
+  },300);
+}
+
+showSection("hero");
+</script>
+
+</body>
+</html>
