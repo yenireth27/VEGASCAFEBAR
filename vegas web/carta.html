@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#211712">
+  <meta name="description" content="Carta digital de VEGA'S CAFE BAR en Granada.">
+  <title>Carta | VEGA'S CAFE BAR</title>
+
+  <style>
+    :root{
+      --dark:#211712; --brown:#5a3b2c; --brown-light:#80604c;
+      --cream:#f7f2ea; --white:#fff; --gold:#b99662;
+      --gold-light:#d6bb8b; --text:#241d18; --muted:#665c55;
+      --border:rgba(90,59,44,.14); --max:1100px;
+      --shadow:0 18px 45px rgba(36,25,20,.10);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:145px}
+    body{background:var(--cream);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    a{color:inherit}
+    .container{width:min(calc(100% - 32px),var(--max));margin:auto}
+
+    header{position:sticky;top:0;z-index:1000;background:rgba(33,23,18,.97);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none}
+    .logo-icon{width:43px;height:43px;display:grid;place-items:center;border:1px solid rgba(214,187,139,.55);border-radius:50%;color:var(--gold-light)}
+    .logo-text{display:flex;flex-direction:column;line-height:1}
+    .logo-text strong{font:600 1.08rem Georgia,serif;letter-spacing:.06em}
+    .logo-text span{margin-top:5px;color:var(--gold-light);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase}
+    .back{padding:9px 16px;border:1px solid rgba(214,187,139,.45);border-radius:10px;color:#fff;text-decoration:none;font-size:.82rem;font-weight:800}
+
+    .hero{padding:90px 20px;text-align:center;color:#fff;background:linear-gradient(120deg,rgba(33,23,18,.94),rgba(90,59,44,.82),rgba(33,23,18,.95)),url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=85") center/cover}
+    .eyebrow{display:inline-flex;gap:10px;color:var(--gold-light);font-size:.7rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+    .eyebrow::before,.eyebrow::after{content:"";width:28px;height:1px;background:currentColor}
+    .hero h1{margin:17px 0;font:500 clamp(3rem,8vw,5.5rem)/.95 Georgia,serif}
+    .hero p{max-width:650px;margin:auto;color:rgba(255,255,255,.76)}
+
+    .categories-wrap{position:sticky;top:76px;z-index:100;padding:13px 0;background:rgba(247,242,234,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+    .categories{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+    .categories::-webkit-scrollbar{display:none}
+    .category{flex:0 0 auto;padding:9px 15px;border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--brown);text-decoration:none;font-size:.78rem;font-weight:800;transition:.25s}
+    .category:hover,.category.active{background:var(--brown);color:#fff}
+
+    .menu{padding:75px 0 90px}
+    .menu-section{scroll-margin-top:145px;margin-bottom:80px}
+    .heading{display:flex;align-items:flex-end;justify-content:space-between;gap:25px;margin-bottom:27px;padding-bottom:15px;border-bottom:1px solid var(--border)}
+    .heading small{display:block;margin-bottom:6px;color:var(--brown);font-size:.66rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+    .heading h2{font:500 clamp(2rem,4vw,3rem)/1 Georgia,serif}
+    .heading p{max-width:380px;color:var(--muted);text-align:right;font-size:.86rem}
+    .products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .product{padding:23px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.82);box-shadow:0 8px 25px rgba(36,25,20,.04);transition:.25s}
+    .product:hover{transform:translateY(-3px);border-color:rgba(185,150,98,.42);box-shadow:var(--shadow)}
+    .product.featured{background:linear-gradient(135deg,#fffdf9,#f1e6d5);border-color:rgba(185,150,98,.35)}
+    .product-top{display:flex;justify-content:space-between;gap:18px}
+    .product h3{margin-bottom:5px;font:600 1.18rem/1.2 Georgia,serif}
+    .product p{color:var(--muted);font-size:.83rem}
+    .price{color:var(--brown);font-weight:900;white-space:nowrap}
+    .tag{display:inline-flex;margin-top:12px;padding:4px 8px;border-radius:5px;background:rgba(185,150,98,.13);color:var(--brown);font-size:.6rem;font-weight:900;text-transform:uppercase}
+    .note{padding:24px;border:1px solid rgba(185,150,98,.22);border-radius:18px;background:rgba(185,150,98,.07);text-align:center}
+    .note strong{display:block;color:var(--brown);font:600 1.1rem Georgia,serif}
+    .note p{color:var(--muted);font-size:.8rem}
+
+    footer{padding:35px 20px;background:var(--dark);color:rgba(255,255,255,.62);text-align:center}
+    footer strong{display:block;color:#fff;font:500 1.1rem Georgia,serif}
+    footer p{font-size:.75rem}
+    footer a{color:var(--gold-light);text-decoration:none}
+
+    @media(max-width:720px){
+      .products{grid-template-columns:1fr}
+      .heading{align-items:flex-start;flex-direction:column}
+      .heading p{text-align:left}
+    }
+    @media(max-width:520px){
+      .container{width:calc(100% - 24px)}
+      .nav{min-height:68px}
+      .logo-icon{width:38px;height:38px}
+      .logo-text span{display:none}
+      .categories-wrap{top:68px}
+      .menu{padding:55px 0 65px}
+      .product{padding:20px 17px}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">☕</span>
+      <span class="logo-text">
+        <strong>VEGA'S</strong>
+        <span>Cafe Bar · Granada</span>
+      </span>
+    </a>
+    <a href="index.html" class="back">← Volver</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">VEGA'S CAFE BAR</span>
+    <h1>Nuestra Carta</h1>
+    <p>Café, desayunos, brunch, arepas, dulces y bebidas para disfrutar en Granada.</p>
+  </div>
+</section>
+
+<div class="categories-wrap">
+  <nav class="container categories" aria-label="Categorías de la carta">
+    <a class="category active" href="#cafes">☕ Cafés</a>
+    <a class="category" href="#desayunos">🥐 Desayunos</a>
+    <a class="category" href="#brunch">🍳 Brunch</a>
+    <a class="category" href="#arepas">🫓 Arepas</a>
+    <a class="category" href="#dulces">🍰 Dulces</a>
+    <a class="category" href="#bebidas">🥤 Bebidas</a>
+  </nav>
+</div>
+
+<main class="container menu">
+
+  <section class="menu-section" id="cafes">
+    <div class="heading"><div><small>El comienzo</small><h2>Cafés</h2></div><p>Café y bebidas calientes para empezar el día o acompañar cualquier momento.</p></div>
+    <div class="products">
+      <article class="product featured"><div class="product-top"><div><h3>Café con leche</h3><p>Espresso con leche cremosa y textura suave.</p></div><span class="price">2,20 €</span></div><span class="tag">Favorito</span></article>
+      <article class="product"><div class="product-top"><div><h3>Espresso</h3><p>Intenso, corto y aromático.</p></div><span class="price">1,80 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Cappuccino</h3><p>Espresso, leche vaporizada y espuma cremosa.</p></div><span class="price">2,70 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Latte</h3><p>Café suave con abundante leche cremosa.</p></div><span class="price">2,80 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Café americano</h3><p>Espresso alargado con agua caliente.</p></div><span class="price">2,20 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Chocolate caliente</h3><p>Chocolate cremoso preparado al momento.</p></div><span class="price">3,20 €</span></div></article>
+    </div>
+  </section>
+
+  <section class="menu-section" id="desayunos">
+    <div class="heading"><div><small>Buenos días</small><h2>Desayunos</h2></div><p>Opciones dulces y saladas para comenzar el día con calma.</p></div>
+    <div class="products">
+      <article class="product featured"><div class="product-top"><div><h3>Tostada VEGA'S</h3><p>Pan artesano, tomate rallado, AOVE y jamón.</p></div><span class="price">4,90 €</span></div><span class="tag">Especial</span></article>
+      <article class="product"><div class="product-top"><div><h3>Tostada mediterránea</h3><p>Pan artesano, tomate, aguacate y aceite de oliva.</p></div><span class="price">5,50 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Tostada con tomate</h3><p>Pan artesano, tomate natural y aceite de oliva.</p></div><span class="price">3,20 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Yogur con fruta</h3><p>Yogur, fruta de temporada, granola y miel.</p></div><span class="price">4,80 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Pancakes de avena y plátano</h3><p>Con fruta fresca y sirope.</p></div><span class="price">7,50 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Desayuno completo</h3><p>Tostada, café y zumo de naranja natural.</p></div><span class="price">6,90 €</span></div></article>
+    </div>
+  </section>
+
+  <section class="menu-section" id="brunch">
+    <div class="heading"><div><small>Sin prisas</small><h2>Brunch</h2></div><p>Platos completos, dulces y salados para disfrutar a cualquier hora.</p></div>
+    <div class="products">
+      <article class="product featured"><div class="product-top"><div><h3>Brunch VEGA'S</h3><p>Huevos, aguacate, pan artesano, fruta, yogur, granola y café.</p></div><span class="price">13,90 €</span></div><span class="tag">Recomendado</span></article>
+      <article class="product"><div class="product-top"><div><h3>Huevos con aguacate</h3><p>Huevos, aguacate y pan tostado.</p></div><span class="price">9,90 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Omelette VEGA'S</h3><p>Mozzarella, aguacate y pesto.</p></div><span class="price">10,90 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Tosta de aguacate</h3><p>Aguacate, huevo, semillas y pan artesano.</p></div><span class="price">8,90 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Pancakes de Nutella, fresa y banana</h3><p>Tortitas caseras con Nutella y fruta fresca.</p></div><span class="price">8,90 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Ensalada VEGA'S</h3><p>Hojas frescas, tomate, aguacate y queso.</p></div><span class="price">9,50 €</span></div></article>
+    </div>
+  </section>
+
+  <section class="menu-section" id="arepas">
+    <div class="heading"><div><small>Sabor latino</small><h2>Arepas</h2></div><p>Una propuesta de inspiración latinoamericana de VEGA'S.</p></div>
+    <div class="products">
+      <article class="product featured"><div class="product-top"><div><h3>Arepa Reina Pepiada</h3><p>Arepa rellena de pollo, aguacate y salsa cremosa.</p></div><span class="price">8,90 €</span></div><span class="tag">Especialidad</span></article>
+      <article class="product"><div class="product-top"><div><h3>Arepa Domino</h3><p>Frijoles negros y queso.</p></div><span class="price">8,50 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Arepa de pollo</h3><p>Pollo preparado al estilo de la casa y queso.</p></div><span class="price">8,90 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Arepa de queso</h3><p>Queso y masa de maíz recién preparada.</p></div><span class="price">7,90 €</span></div></article>
+    </div>
+  </section>
+
+  <section class="menu-section" id="dulces">
+    <div class="heading"><div><small>Algo dulce</small><h2>Dulces &amp; Meriendas</h2></div><p>Para acompañar el café o darse un capricho.</p></div>
+    <div class="products">
+      <article class="product featured"><div class="product-top"><div><h3>Tortitas Lotus Biscoff</h3><p>Tortitas caseras con crema y crujiente Lotus.</p></div><span class="price">8,50 €</span></div><span class="tag">Favoritas</span></article>
+      <article class="product"><div class="product-top"><div><h3>Tortitas de Nutella, fresa y banana</h3><p>Chocolate, fruta fresca y tortitas caseras.</p></div><span class="price">8,90 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Tarta de queso</h3><p>Cremosa y suave con base crujiente.</p></div><span class="price">5,20 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Brownie de chocolate</h3><p>Chocolate intenso con interior húmedo.</p></div><span class="price">4,50 €</span></div></article>
+    </div>
+  </section>
+
+  <section class="menu-section" id="bebidas">
+    <div class="heading"><div><small>Para acompañar</small><h2>Bebidas</h2></div><p>Refrescantes, naturales y preparadas para cada momento.</p></div>
+    <div class="products">
+      <article class="product"><div class="product-top"><div><h3>Batido de fruta</h3><p>Fruta y bebida elegida, preparado al momento.</p></div><span class="price">5,50 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Zumo de naranja natural</h3><p>Naranjas recién exprimidas.</p></div><span class="price">3,50 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Limonada casera</h3><p>Limón natural y un toque refrescante.</p></div><span class="price">3,20 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Pink Latte</h3><p>Bebida cremosa de la casa.</p></div><span class="price">4,50 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Té / infusión</h3><p>Selección de variedades calientes.</p></div><span class="price">2,30 €</span></div></article>
+      <article class="product"><div class="product-top"><div><h3>Refrescos</h3><p>Selección de refrescos clásicos.</p></div><span class="price">2,50 €</span></div></article>
+    </div>
+  </section>
+
+  <div class="note">
+    <strong>Información sobre la carta</strong>
+    <p>Los productos y precios de esta versión web son los contenidos configurados para la carta digital y pueden actualizarse cuando sea necesario.</p>
+  </div>
+</main>
+
+<footer>
+  <strong>VEGA'S CAFE BAR</strong>
+  <p>Calle Gracia, 32 · Granada</p>
+  <p style="margin-top:8px">
+    <a href="index.html">← Volver a la página principal</a>
+    ·
+    <a href="https://wa.me/34697245373" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  </p>
+</footer>
+
+<script>
+  const links = [...document.querySelectorAll(".category")];
+  const sections = [...document.querySelectorAll(".menu-section")];
+
+  function updateCategory(){
+    let active = sections[0]?.id;
+    const position = window.scrollY + 180;
+    sections.forEach(section => {
+      if(position >= section.offsetTop) active = section.id;
+    });
+    links.forEach(link => {
+      link.classList.toggle("active", link.getAttribute("href") === "#" + active);
+    });
+  }
+
+  window.addEventListener("scroll", updateCategory, {passive:true});
+  updateCategory();
+</script>
+</body>
+</html>
