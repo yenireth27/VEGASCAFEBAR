@@ -1,64 +1,97 @@
 <!DOCTYPE html>
 
 <html lang="es">
+
 <head>
 
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta
-    name="theme-color"
-    content="#211712">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 
-  <meta
-    name="description"
-    content="VEGA'S CAFE BAR en Granada. Café, desayunos, brunch, meriendas y bebidas.">
+>
 
-  <meta
-    name="robots"
-    content="index, follow">
+<meta
+name="theme-color"
+content="#211712"
 
-  <title>VEGA'S CAFE BAR | Granada</title>
+>
+
+<meta
+name="description"
+content="VEGA'S CAFE BAR en Granada. Café, desayunos, brunch, meriendas y bebidas en Calle Gracia 32."
+
+>
+
+<meta
+name="robots"
+content="index, follow"
+
+>
+
+<meta
+name="author"
+content="VEGA'S CAFE BAR"
+
+>
+
+  <title>VEGA'S CAFE BAR | Caf&eacute;, Brunch y Desayunos en Granada</title>
+
+  <link
+    rel="icon"
+    href="logo%20vegas.png"
+    type="image/png"
+  >
 
   <style>
 
-    :root{
-      --dark:#211712;
-      --dark-2:#34231b;
-      --brown:#5a3b2c;
-      --brown-light:#80604c;
-      --cream:#f7f2ea;
-      --cream-2:#ebe2d5;
-      --white:#fff;
-      --black:#171310;
-      --gold:#b99662;
-      --gold-light:#d6bb8b;
-      --text:#241d18;
-      --muted:#665c55;
-      --border:rgba(90,59,44,.14);
-      --shadow:0 18px 45px rgba(36,25,20,.10);
-      --radius:20px;
-      --max:1120px;
+    :root {
+      --dark: #211712;
+      --dark-2: #34231b;
+      --brown: #5a3b2c;
+      --brown-light: #80604c;
+      --cream: #f7f2ea;
+      --cream-2: #ebe2d5;
+      --white: #ffffff;
+      --black: #171310;
+      --gold: #b99662;
+      --gold-light: #d6bb8b;
+      --text: #241d18;
+      --muted: #665c55;
+      --border: rgba(90, 59, 44, .14);
+      --shadow: 0 18px 45px rgba(36, 25, 20, .10);
+      --radius: 20px;
+      --max: 1120px;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
+
+    /* =========================
+       RESET
+    ========================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top:90px;
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
-    body{
-      min-width:320px;
-      background:var(--cream);
-      color:var(--text);
+
+    body {
+      min-width: 320px;
+      background: var(--cream);
+      color: var(--text);
+
       font-family:
         Inter,
         system-ui,
@@ -66,26 +99,72 @@
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
+
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    img{
-      display:block;
-      max-width:100%;
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
-    a{
-      color:inherit;
+
+    a {
+      color: inherit;
     }
 
-    button{
-      font:inherit;
+
+    button {
+      font: inherit;
     }
 
-    .container{
-      width:min(calc(100% - 32px),var(--max));
-      margin-inline:auto;
+
+    .container {
+      width: min(
+        calc(100% - 32px),
+        var(--max)
+      );
+
+      margin-inline: auto;
+    }
+
+
+    /* =========================
+       ACCESIBILIDAD
+    ========================= */
+
+    :focus-visible {
+      outline: 3px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 2000;
+
+      padding: 10px 14px;
+
+      border-radius: 8px;
+
+      background: #ffffff;
+      color: var(--dark);
+
+      text-decoration: none;
+
+      transform: translateY(-150%);
+
+      transition: transform .2s ease;
+    }
+
+
+    .skip-link:focus {
+      transform: translateY(0);
     }
 
 
@@ -93,65 +172,105 @@
        HEADER
     ========================= */
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(33,23,18,.97);
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(33, 23, 18, .97);
+
       border-bottom:
-        1px solid rgba(255,255,255,.08);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
+        1px solid rgba(255, 255, 255, .08);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
-    .nav{
-      min-height:76px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
+
+    .nav {
+      min-height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
     }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:11px;
-      color:#fff;
-      text-decoration:none;
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      gap: 11px;
+
+      color: #ffffff;
+
+      text-decoration: none;
+
+      min-width: 0;
     }
 
-    .logo-icon{
-      width:43px;
-      height:43px;
-      display:grid;
-      place-items:center;
+
+    .logo-mark {
+      width: 43px;
+      height: 43px;
+
+      flex: 0 0 43px;
+
+      display: grid;
+      place-items: center;
+
+      overflow: hidden;
+
       border:
-        1px solid rgba(214,187,139,.55);
-      border-radius:50%;
-      color:var(--gold-light);
-      font-size:18px;
+        1px solid rgba(214, 187, 139, .55);
+
+      border-radius: 50%;
+
+      background:
+        rgba(255, 255, 255, .03);
     }
 
-    .logo-text{
-      display:flex;
-      flex-direction:column;
-      line-height:1;
+
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
     }
 
-    .logo-text strong{
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+
+      line-height: 1;
+    }
+
+
+    .logo-text strong {
       font:
-        600
-        1.08rem
-        Georgia,serif;
-      letter-spacing:.06em;
+        600 1.08rem Georgia, serif;
+
+      letter-spacing: .06em;
     }
 
-    .logo-text span{
-      margin-top:5px;
-      color:var(--gold-light);
-      font-size:.58rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
+
+    .logo-text span {
+      margin-top: 5px;
+
+      color: var(--gold-light);
+
+      font-size: .58rem;
+
+      letter-spacing: .16em;
+
+      text-transform: uppercase;
     }
 
 
@@ -159,43 +278,78 @@
        NAV
     ========================= */
 
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:24px;
+    .nav-links {
+      display: flex;
+      align-items: center;
+
+      gap: 24px;
     }
 
-    .nav-links a{
+
+    .nav-links a {
       color:
-        rgba(255,255,255,.82);
-      text-decoration:none;
-      font-size:.83rem;
-      font-weight:700;
+        rgba(255, 255, 255, .82);
+
+      text-decoration: none;
+
+      font-size: .83rem;
+      font-weight: 700;
+
+      transition:
+        color .2s ease;
     }
 
-    .nav-links a:hover{
-      color:var(--gold-light);
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold-light);
     }
 
-    .nav-cta{
+
+    .nav-cta {
       padding:
         10px 17px;
-      border-radius:10px;
-      background:var(--gold);
-      color:var(--dark)!important;
+
+      border-radius: 10px;
+
+      background: var(--gold);
+
+      color: var(--dark) !important;
     }
 
-    .menu-toggle{
-      display:none;
-      width:44px;
-      height:44px;
+
+    .nav-cta:hover,
+    .nav-cta:focus-visible {
+      background:
+        var(--gold-light);
+    }
+
+
+    .menu-toggle {
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
       border:
-        1px solid rgba(255,255,255,.15);
-      border-radius:10px;
-      background:transparent;
-      color:#fff;
-      cursor:pointer;
-      font-size:1.3rem;
+        1px solid rgba(255, 255, 255, .15);
+
+      border-radius: 10px;
+
+      background: transparent;
+
+      color: #ffffff;
+
+      cursor: pointer;
+
+      font-size: 1.3rem;
+    }
+
+
+    .menu-toggle:hover,
+    .menu-toggle:focus-visible {
+      background:
+        rgba(255, 255, 255, .08);
     }
 
 
@@ -203,239 +357,388 @@
        HERO
     ========================= */
 
-    .hero{
-      min-height:78vh;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      color:#fff;
+    .hero {
+      min-height: 78vh;
+
+      display: grid;
+      place-items: center;
+
+      text-align: center;
+
+      color: #ffffff;
+
       background:
         linear-gradient(
           120deg,
-          rgba(33,23,18,.94),
-          rgba(90,59,44,.78),
-          rgba(33,23,18,.95)
+          rgba(33, 23, 18, .94),
+          rgba(90, 59, 44, .78),
+          rgba(33, 23, 18, .95)
         ),
         url(
           "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2000&q=85"
         )
-        center/cover;
+        center / cover;
     }
 
-    .hero-content{
-      max-width:850px;
-      padding:110px 0;
+
+    .hero-content {
+      max-width: 850px;
+
+      padding:
+        110px 0;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      color:var(--gold-light);
-      font-size:.7rem;
-      font-weight:900;
-      letter-spacing:.22em;
-      text-transform:uppercase;
+
+    .eyebrow {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      color: var(--gold-light);
+
+      font-size: .7rem;
+
+      font-weight: 900;
+
+      letter-spacing: .22em;
+
+      text-transform: uppercase;
     }
+
 
     .eyebrow::before,
-    .eyebrow::after{
-      content:"";
-      width:30px;
-      height:1px;
-      background:currentColor;
+    .eyebrow::after {
+      content: "";
+
+      width: 30px;
+      height: 1px;
+
+      background:
+        currentColor;
     }
 
-    .hero h1{
-      margin:18px 0;
+
+    .hero h1 {
+      margin:
+        18px 0;
+
       font:
-        500
-        clamp(3.4rem,9vw,7rem)
-        /
-        .92
-        Georgia,serif;
-      letter-spacing:-.05em;
+        500 clamp(3.4rem, 9vw, 7rem)
+        / .92
+        Georgia,
+        serif;
+
+      letter-spacing: -.05em;
     }
 
-    .hero p{
-      max-width:650px;
-      margin:auto;
+
+    .hero p {
+      max-width: 650px;
+
+      margin:
+        auto;
+
       color:
-        rgba(255,255,255,.78);
+        rgba(255, 255, 255, .78);
+
       font-size:
-        clamp(1rem,2vw,1.16rem);
+        clamp(1rem, 2vw, 1.16rem);
     }
 
-    .actions{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:32px;
+
+    /* =========================
+       BOTONES
+    ========================= */
+
+    .actions {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 32px;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:47px;
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 47px;
+
       padding:
         10px 19px;
-      border-radius:11px;
-      text-decoration:none;
-      font-size:.84rem;
-      font-weight:800;
-      transition:.25s ease;
+
+      border-radius: 11px;
+
+      text-decoration: none;
+
+      font-size: .84rem;
+
+      font-weight: 800;
+
+      transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
     }
 
-    .btn-primary{
-      background:var(--gold);
-      color:var(--dark);
+
+    .btn-primary {
+      background:
+        var(--gold);
+
+      color:
+        var(--dark);
     }
 
-    .btn-primary:hover{
-      background:var(--gold-light);
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background:
+        var(--gold-light);
+
       transform:
         translateY(-2px);
     }
 
-    .btn-secondary{
+
+    .btn-secondary {
       border:
-        1px solid rgba(255,255,255,.4);
+        1px solid rgba(255, 255, 255, .4);
+
       background:
-        rgba(255,255,255,.05);
-      color:#fff;
+        rgba(255, 255, 255, .05);
+
+      color:
+        #ffffff;
     }
 
-    .btn-secondary:hover{
-      background:#fff;
-      color:var(--dark);
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background:
+        #ffffff;
+
+      color:
+        var(--dark);
+    }
+
+
+    .btn-dark {
+      background:
+        var(--dark);
+
+      color:
+        #ffffff;
+    }
+
+
+    .btn-dark:hover,
+    .btn-dark:focus-visible {
+      background:
+        var(--brown);
+
+      transform:
+        translateY(-2px);
     }
 
 
     /* =========================
-       SECTIONS
+       SECCIONES
     ========================= */
 
-    .section{
+    .section {
       padding:
         90px 0;
     }
 
-    .section-head{
-      max-width:700px;
+
+    .section-head {
+      max-width: 700px;
+
       margin:
         0 auto 42px;
-      text-align:center;
+
+      text-align:
+        center;
     }
 
-    .section-head span{
-      color:var(--brown);
-      font-size:.7rem;
-      font-weight:900;
-      letter-spacing:.2em;
-      text-transform:uppercase;
+
+    .section-head > span {
+      color:
+        var(--brown);
+
+      font-size:
+        .7rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .2em;
+
+      text-transform:
+        uppercase;
     }
 
-    .section-head h2{
+
+    .section-head h2 {
       margin:
         9px 0 12px;
+
       font:
-        500
-        clamp(2.3rem,5vw,4rem)
-        /
-        1
-        Georgia,serif;
+        500 clamp(2.3rem, 5vw, 4rem)
+        / 1
+        Georgia,
+        serif;
     }
 
-    .section-head p{
-      color:var(--muted);
+
+    .section-head p {
+      color:
+        var(--muted);
     }
 
 
     /* =========================
-       SERVICES
+       SERVICIOS
     ========================= */
 
-    .cards{
-      display:grid;
+    .cards {
+      display: grid;
+
       grid-template-columns:
-        repeat(3,1fr);
-      gap:16px;
+        repeat(3, 1fr);
+
+      gap: 16px;
     }
 
-    .card{
-      padding:28px;
+
+    .card {
+      padding:
+        28px;
+
       border:
         1px solid var(--border);
-      border-radius:var(--radius);
+
+      border-radius:
+        var(--radius);
+
       background:
-        rgba(255,255,255,.8);
+        rgba(255, 255, 255, .8);
+
       box-shadow:
-        0 8px 25px rgba(36,25,20,.045);
+        0 8px 25px rgba(36, 25, 20, .045);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
     }
 
-    .card-icon{
-      margin-bottom:15px;
-      font-size:1.8rem;
+
+    .card:hover {
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        var(--shadow);
     }
 
-    .card h3{
-      margin-bottom:8px;
+
+    .card-icon {
+      margin-bottom:
+        15px;
+
+      font-size:
+        1.8rem;
+    }
+
+
+    .card h3 {
+      margin-bottom:
+        8px;
+
       font:
-        600
-        1.35rem
-        Georgia,serif;
+        600 1.35rem
+        Georgia,
+        serif;
     }
 
-    .card p{
-      color:var(--muted);
-      font-size:.9rem;
+
+    .card p {
+      color:
+        var(--muted);
+
+      font-size:
+        .9rem;
     }
 
 
     /* =========================
-       CARTA DIGITAL
+       CARTA
     ========================= */
 
-    .menu-banner{
+    .menu-banner {
       padding:
         75px 0;
-      color:#fff;
+
+      color:
+        #ffffff;
+
       background:
         linear-gradient(
           110deg,
-          rgba(33,23,18,.95),
-          rgba(90,59,44,.84)
+          rgba(33, 23, 18, .95),
+          rgba(90, 59, 44, .84)
         ),
         url(
           "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1800&q=85"
         )
-        center/cover;
+        center / cover;
     }
 
-    .menu-grid{
-      display:grid;
+
+    .menu-grid {
+      display:
+        grid;
+
       grid-template-columns:
         1fr 330px;
-      gap:45px;
-      align-items:center;
+
+      gap:
+        45px;
+
+      align-items:
+        center;
     }
 
-    .menu-banner h2{
-      margin:10px 0;
+
+    .menu-banner h2 {
+      margin:
+        10px 0;
+
       font:
-        500
-        clamp(2.4rem,5vw,4rem)
-        /
-        1
-        Georgia,serif;
+        500 clamp(2.4rem, 5vw, 4rem)
+        / 1
+        Georgia,
+        serif;
     }
 
-    .menu-banner p{
-      max-width:600px;
+
+    .menu-banner p {
+      max-width:
+        600px;
+
       color:
-        rgba(255,255,255,.75);
+        rgba(255, 255, 255, .75);
     }
 
 
@@ -443,72 +746,149 @@
        QR
     ========================= */
 
-    .qr-card{
-      padding:24px;
-      border-radius:20px;
-      background:#fff;
-      color:var(--text);
-      text-align:center;
-      box-shadow:var(--shadow);
+    .qr-card {
+      padding:
+        24px;
+
+      border-radius:
+        20px;
+
+      background:
+        #ffffff;
+
+      color:
+        var(--text);
+
+      text-align:
+        center;
+
+      box-shadow:
+        var(--shadow);
     }
 
-    .qr-link{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:220px;
-      height:220px;
-      margin:0 auto 15px;
-      background:#fff;
-      overflow:hidden;
-      text-decoration:none;
-      border-radius:0;
+
+    .qr-link {
+      display:
+        flex;
+
+      align-items:
+        center;
+      justify-content:
+        center;
+
+      width:
+        220px;
+
+      height:
+        220px;
+
+      margin:
+        0 auto 15px;
+
+      background:
+        #ffffff;
+
+      overflow:
+        hidden;
+
+      text-decoration:
+        none;
     }
 
-    .qr-image{
-      display:block;
-      width:220px;
-      height:220px;
-      max-width:none;
-      object-fit:contain;
-      background:#fff;
-      border:0;
-      border-radius:0;
+
+    .qr-image {
+      display:
+        block;
+
+      width:
+        220px;
+
+      height:
+        220px;
+
+      max-width:
+        none;
+
+      object-fit:
+        contain;
+
+      background:
+        #ffffff;
     }
 
-    .qr-card strong{
-      display:block;
-      margin-bottom:5px;
+
+    .qr-card strong {
+      display:
+        block;
+
+      margin-bottom:
+        5px;
+
       font:
-        600
-        1.2rem
-        Georgia,serif;
+        600 1.2rem
+        Georgia,
+        serif;
     }
 
-    .qr-card small{
-      display:block;
-      margin-bottom:15px;
-      color:var(--muted);
+
+    .qr-card small {
+      display:
+        block;
+
+      margin-bottom:
+        15px;
+
+      color:
+        var(--muted);
     }
 
-    .qr-button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:44px;
-      padding:10px 18px;
-      border-radius:10px;
-      background:var(--gold);
-      color:var(--dark);
-      text-decoration:none;
-      font-size:.82rem;
-      font-weight:800;
-      transition:.25s ease;
+
+    .qr-button {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+      justify-content:
+        center;
+
+      min-height:
+        44px;
+
+      padding:
+        10px 18px;
+
+      border-radius:
+        10px;
+
+      background:
+        var(--gold);
+
+      color:
+        var(--dark);
+
+      text-decoration:
+        none;
+
+      font-size:
+        .82rem;
+
+      font-weight:
+        800;
+
+      transition:
+        background .25s ease,
+        transform .25s ease;
     }
 
-    .qr-button:hover{
-      background:var(--gold-light);
-      transform:translateY(-2px);
+
+    .qr-button:hover,
+    .qr-button:focus-visible {
+      background:
+        var(--gold-light);
+
+      transform:
+        translateY(-2px);
     }
 
 
@@ -516,61 +896,75 @@
        NOSOTROS
     ========================= */
 
-    .about{
-      background:#fff;
+    .about {
+      background:
+        #ffffff;
     }
 
-    .about-grid{
-      display:grid;
-      grid-template-columns:
-        1fr 1fr;
-      gap:60px;
-      align-items:center;
+
+    .about-grid {
+      max-width:
+        850px;
+
+      margin-inline:
+        auto;
     }
 
-    /*
-      IMAGEN ELIMINADA.
-      Se mantiene el espacio y la estructura
-      para no alterar el diseño general.
-    */
 
-    .about-image{
-      min-height:480px;
-      border-radius:24px;
-      background:none;
-    }
-
-    .about-copy h2{
+    .about-copy h2 {
       margin:
         10px 0 18px;
+
       font:
-        500
-        clamp(2.3rem,5vw,4rem)
-        /
-        1
-        Georgia,serif;
+        500 clamp(2.3rem, 5vw, 4rem)
+        / 1
+        Georgia,
+        serif;
     }
 
-    .about-copy p{
-      margin-bottom:15px;
-      color:var(--muted);
+
+    .about-copy p {
+      margin-bottom:
+        15px;
+
+      color:
+        var(--muted);
     }
 
-    .pills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:25px;
+
+    .pills {
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        8px;
+
+      margin-top:
+        25px;
     }
 
-    .pill{
+
+    .pill {
       padding:
         8px 12px;
-      border-radius:999px;
-      background:var(--cream-2);
-      color:var(--brown);
-      font-size:.76rem;
-      font-weight:800;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--cream-2);
+
+      color:
+        var(--brown);
+
+      font-size:
+        .76rem;
+
+      font-weight:
+        800;
     }
 
 
@@ -578,73 +972,152 @@
        CONTACTO
     ========================= */
 
-    .contact{
-      background:var(--cream-2);
+    .contact {
+      background:
+        var(--cream-2);
     }
 
-    .contact-grid{
-      display:grid;
+
+    .contact-grid {
+      display:
+        grid;
+
       grid-template-columns:
-        repeat(4,1fr);
-      gap:14px;
+        repeat(4, 1fr);
+
+      gap:
+        14px;
     }
 
-    .contact-card{
-      padding:24px;
+
+    .contact-card {
+      padding:
+        24px;
+
       border:
         1px solid var(--border);
-      border-radius:18px;
-      background:#fff;
+
+      border-radius:
+        18px;
+
+      background:
+        #ffffff;
     }
 
-    .contact-card span{
-      display:block;
-      margin-bottom:7px;
-      color:var(--brown);
-      font-size:.68rem;
-      font-weight:900;
-      letter-spacing:.14em;
-      text-transform:uppercase;
+
+    .contact-card > span {
+      display:
+        block;
+
+      margin-bottom:
+        7px;
+
+      color:
+        var(--brown);
+
+      font-size:
+        .68rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .14em;
+
+      text-transform:
+        uppercase;
     }
 
-    .contact-card a{
-      display:block;
-      min-height:44px;
-      text-decoration:none;
+
+    .contact-card a {
+      display:
+        block;
+
+      min-height:
+        44px;
+
+      text-decoration:
+        none;
     }
 
-    .contact-card a strong{
-      display:block;
+
+    .contact-card a strong {
+      display:
+        block;
     }
 
-    .contact-card a:hover{
-      color:var(--brown-light);
+
+    .contact-card a:hover,
+    .contact-card a:focus-visible {
+      color:
+        var(--brown-light);
     }
 
-    .socials{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      margin-top:30px;
+
+    .socials {
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      gap:
+        10px;
+
+      margin-top:
+        30px;
     }
 
-    .socials a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:120px;
-      min-height:44px;
-      border-radius:10px;
-      background:var(--dark);
-      color:#fff;
-      text-decoration:none;
-      font-size:.78rem;
-      font-weight:800;
-      transition:.25s;
+
+    .socials a {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+      justify-content:
+        center;
+
+      min-width:
+        120px;
+
+      min-height:
+        44px;
+
+      padding:
+        10px 16px;
+
+      border-radius:
+        10px;
+
+      background:
+        var(--dark);
+
+      color:
+        #ffffff;
+
+      text-decoration:
+        none;
+
+      font-size:
+        .78rem;
+
+      font-weight:
+        800;
+
+      transition:
+        background .25s ease,
+        transform .25s ease;
     }
 
-    .socials a:hover{
-      background:var(--brown);
+
+    .socials a:hover,
+    .socials a:focus-visible {
+      background:
+        var(--brown);
+
+      transform:
+        translateY(-2px);
     }
 
 
@@ -652,181 +1125,298 @@
        FOOTER
     ========================= */
 
-    footer{
+    footer {
       padding:
         38px 20px;
-      background:var(--dark);
+
+      background:
+        var(--dark);
+
       color:
-        rgba(255,255,255,.62);
-      text-align:center;
+        rgba(255, 255, 255, .62);
+
+      text-align:
+        center;
     }
 
-    footer strong{
-      display:block;
-      margin-bottom:5px;
-      color:#fff;
+
+    footer strong {
+      display:
+        block;
+
+      margin-bottom:
+        5px;
+
+      color:
+        #ffffff;
+
       font:
-        500
-        1.1rem
-        Georgia,serif;
+        500 1.1rem
+        Georgia,
+        serif;
     }
 
-    footer p{
-      font-size:.75rem;
+
+    footer p {
+      font-size:
+        .75rem;
     }
 
-    footer a{
-      color:var(--gold-light);
-      text-decoration:none;
+
+    footer a {
+      color:
+        var(--gold-light);
+
+      text-decoration:
+        none;
+    }
+
+
+    footer a:hover,
+    footer a:focus-visible {
+      text-decoration:
+        underline;
     }
 
 
     /* =========================
-       RESPONSIVE
+       TABLET
     ========================= */
 
-    @media(max-width:900px){
+    @media (max-width: 900px) {
 
-      .nav-links{
-        position:absolute;
-        top:68px;
-        left:16px;
-        right:16px;
-        display:none;
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-        padding:14px;
+      .nav-links {
+        position:
+          absolute;
+
+        top:
+          68px;
+
+        left:
+          16px;
+
+        right:
+          16px;
+
+        display:
+          none;
+
+        flex-direction:
+          column;
+
+        align-items:
+          stretch;
+
+        gap:
+          0;
+
+        padding:
+          14px;
+
         border:
-          1px solid rgba(255,255,255,.08);
-        border-radius:14px;
+          1px solid rgba(255, 255, 255, .08);
+
+        border-radius:
+          14px;
+
         background:
-          rgba(33,23,18,.98);
-        box-shadow:var(--shadow);
+          rgba(33, 23, 18, .98);
+
+        box-shadow:
+          var(--shadow);
       }
 
-      .nav-links.open{
-        display:flex;
+
+      .nav-links.open {
+        display:
+          flex;
       }
 
-      .nav-links a{
+
+      .nav-links a {
         padding:
           11px 12px;
       }
 
-      .menu-toggle{
-        display:block;
+
+      .nav-cta {
+        margin-top:
+          4px;
+
+        text-align:
+          center;
       }
 
-      .cards{
-        grid-template-columns:1fr;
+
+      .menu-toggle {
+        display:
+          block;
       }
 
-      .menu-grid{
-        grid-template-columns:1fr;
-      }
 
-      .qr-card{
-        max-width:360px;
-        margin:auto;
-      }
-
-      .about-grid{
-        grid-template-columns:1fr;
-      }
-
-      .about-image{
-        min-height:0;
-        display:none;
-      }
-
-      .contact-grid{
+      .cards {
         grid-template-columns:
-          repeat(2,1fr);
+          1fr;
       }
+
+
+      .menu-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .qr-card {
+        max-width:
+          360px;
+
+        margin:
+          auto;
+      }
+
+
+      .contact-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
     }
 
 
-    @media(max-width:560px){
+    /* =========================
+       MÓVIL
+    ========================= */
 
-      .container{
+    @media (max-width: 560px) {
+
+      .container {
         width:
           calc(100% - 24px);
       }
 
-      .nav{
-        min-height:68px;
+
+      .nav {
+        min-height:
+          68px;
       }
 
-      .logo-icon{
-        width:38px;
-        height:38px;
+
+      .logo-mark {
+        width:
+          38px;
+
+        height:
+          38px;
+
+        flex-basis:
+          38px;
       }
 
-      .logo-text strong{
-        font-size:.92rem;
+
+      .logo-text strong {
+        font-size:
+          .92rem;
       }
 
-      .logo-text span{
-        display:none;
+
+      .logo-text span {
+        display:
+          none;
       }
 
-      .hero{
-        min-height:76vh;
+
+      .hero {
+        min-height:
+          76vh;
       }
 
-      .hero-content{
-        padding:90px 0;
+
+      .hero-content {
+        padding:
+          90px 0;
       }
 
-      .actions{
-        flex-direction:column;
+
+      .hero h1 {
+        font-size:
+          clamp(3rem, 16vw, 5rem);
       }
 
-      .actions .btn{
-        width:100%;
+
+      .actions {
+        flex-direction:
+          column;
       }
 
-      .section{
-        padding:65px 0;
+
+      .actions .btn {
+        width:
+          100%;
       }
 
-      .about-image{
-        display:none;
+
+      .section {
+        padding:
+          65px 0;
       }
 
-      .contact-grid{
-        grid-template-columns:1fr;
+
+      .contact-grid {
+        grid-template-columns:
+          1fr;
       }
 
-      .socials{
-        flex-direction:column;
+
+      .socials {
+        flex-direction:
+          column;
       }
 
-      .socials a{
-        width:100%;
+
+      .socials a {
+        width:
+          100%;
       }
 
-      .qr-card{
-        padding:20px;
+
+      .qr-card {
+        padding:
+          20px;
       }
+
 
       .qr-link,
-      .qr-image{
-        width:200px;
-        height:200px;
+      .qr-image {
+        width:
+          200px;
+
+        height:
+          200px;
       }
+
     }
 
 
-    @media(prefers-reduced-motion:reduce){
+    /* =========================
+       REDUCIR ANIMACIONES
+    ========================= */
 
-      html{
-        scroll-behavior:auto;
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior:
+          auto;
       }
 
-      *{
-        transition:none!important;
+
+      *,
+      *::before,
+      *::after {
+        transition:
+          none !important;
+
+        animation:
+          none !important;
       }
 
     }
@@ -835,671 +1425,779 @@
 
 </head>
 
-
 <body>
 
+<a
+ class="skip-link"
+ href="#contenido">
 
-<header>
+```
+Saltar al contenido
+```
 
-  <div class="container nav">
+  </a>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+<div class="container nav">
+
+  <a
+    href="#inicio"
+    class="logo"
+    aria-label="VEGA'S CAFE BAR - Inicio">
+
+    <div class="logo-mark">
+
+      <img
+        src="logo%20vegas.png"
+        alt="Logo de VEGA'S CAFE BAR"
+        width="43"
+        height="43"
+      >
+
+    </div>
+
+
+    <div class="logo-text">
+
+      <strong>
+        VEGA'S
+      </strong>
+
+      <span>
+        Cafe Bar &middot; Granada
+      </span>
+
+    </div>
+
+  </a>
+
+
+  <nav
+    class="nav-links"
+    id="mainNav"
+    aria-label="Navegaci&oacute;n principal">
+
+    <a href="#inicio">
+      Inicio
+    </a>
+
+    <a href="#servicios">
+      Experiencia
+    </a>
 
     <a
-      href="#inicio"
-      class="logo"
-      aria-label="VEGA'S CAFE BAR">
+      href="carta.html"
+      class="nav-cta">
 
-      <div class="logo-mark">
-  <img src="logo vegas.png">
-</div>
-
-        <strong>
-          VEGA'S
-        </strong>
-
-        <span>
-          Cafe Bar · Granada
-        </span>
-
-      </span>
+      Carta digital
 
     </a>
 
-
-    <nav
-      class="nav-links"
-      id="mainNav"
-      aria-label="Navegación principal">
-
-      <a href="#inicio">
-        Inicio
-      </a>
-
-      <a href="#servicios">
-        Experiencia
-      </a>
-
-      <a
-        href="carta.html"
-        class="nav-cta">
-        Carta digital
-      </a>
-
-      <a href="#nosotros">
-        Nosotros
-      </a>
-
-      <a href="#contacto">
-        Contacto
-      </a>
-
-    </nav>
-
-
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      type="button"
-      aria-label="Abrir menú"
-      aria-expanded="false">
-
-      ?
-
-    </button>
-
-  </div>
-
-</header>
-
-
-<main>
-
-
-  <!-- =========================
-       HERO
-  ========================= -->
-
-  <section
-    class="hero"
-    id="inicio">
-
-    <div class="container hero-content">
-
-      <span class="eyebrow">
-        Café · Brunch · Momentos
-      </span>
-
-      <h1>
-        VEGA'S<br>
-        CAFE BAR
-      </h1>
-
-      <p>
-        Un rincón con personalidad en Granada para
-        desayunar, tomar un buen café, disfrutar de un
-        brunch y quedarse un rato más.
-      </p>
-
-      <div class="actions">
-
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=Calle%20Gracia%2032%2C%2018002%20Granada%2C%20Spain"
-          class="btn btn-secondary"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          ?? Cómo llegar
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       SERVICIOS
-  ========================= -->
-
-  <section
-    class="section"
-    id="servicios">
-
-    <div class="container">
-
-      <div class="section-head">
-
-        <span>
-          Una pausa con estilo
-        </span>
-
-        <h2>
-          Hecho para disfrutar
-        </h2>
-
-        <p>
-          Café, desayunos, brunch, meriendas y un ambiente
-          acogedor en pleno centro de Granada.
-        </p>
-
-      </div>
-
-
-      <div class="cards">
-
-        <article class="card">
-
-          <div class="card-icon">
-            ?
-          </div>
-
-          <h3>
-            Café & desayuno
-          </h3>
-
-          <p>
-            Empieza el día con café, tostadas, opciones
-            dulces y propuestas preparadas al momento.
-          </p>
-
-        </article>
-
-
-        <article class="card">
-
-          <div class="card-icon">
-            ??
-          </div>
-
-          <h3>
-            Brunch
-          </h3>
-
-          <p>
-            Opciones dulces y saladas para disfrutar
-            sin prisas y compartir.
-          </p>
-
-        </article>
-
-
-        <article class="card">
-
-          <div class="card-icon">
-            ??
-          </div>
-
-          <h3>
-            Meriendas
-          </h3>
-
-          <p>
-            Tartas, tortitas, bebidas y pequeños
-            caprichos para cualquier momento.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CARTA DIGITAL
-  ========================= -->
-
-  <section
-    class="menu-banner"
-    id="carta">
-
-    <div class="container menu-grid">
-
-      <div>
-
-        <span class="eyebrow">
-          Nuestra carta
-        </span>
-
-        <h2>
-          Descubre todo lo que tenemos para ti.
-        </h2>
-
-        <p>
-          Consulta nuestra carta digital con categorías,
-          productos, precios y especialidades de VEGA'S.
-        </p>
-
-      </div>
-
-
-      <div class="qr-card">
-
-        <a
-          href="carta.html"
-          class="qr-link"
-          aria-label="Abrir carta digital">
-
-          <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&format=png&margin=10&data=carta.html"
-            alt="Código QR para abrir la carta digital de VEGA'S CAFE BAR"
-            class="qr-image"
-            width="220"
-            height="220"
-            loading="eager">
-
-        </a>
-
-
-        <strong>
-          Carta digital
-        </strong>
-
-        <small>
-          Escanea el código para abrirla.
-        </small>
-
-
-        <a
-          href="carta.html"
-          class="qr-button">
-
-          Ver carta
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       NOSOTROS
-  ========================= -->
-
-  <section
-    class="section about"
-    id="nosotros">
-
-    <div class="container about-grid">
-
-      <!-- Espacio de la imagen eliminado -->
-
-      <div class="about-copy">
-
-        <span
-          class="eyebrow"
-          style="color:var(--brown)">
-
-          VEGA'S CAFE BAR
-
-        </span>
-
-        <h2>
-          Un sitio para sentirte a gusto.
-        </h2>
-
-        <p>
-          VEGA'S CAFE BAR está en Calle Gracia 32,
-          Granada, y combina café, desayunos, brunch
-          y meriendas en un ambiente cercano.
-        </p>
-
-        <p>
-          Una propuesta pensada para desayunar,
-          reunirse, trabajar, compartir o simplemente
-          disfrutar de un buen café.
-        </p>
-
-        <div class="pills">
-
-          <span class="pill">
-            Desayunos
-          </span>
-
-          <span class="pill">
-            Brunch
-          </span>
-
-          <span class="pill">
-            Meriendas
-          </span>
-
-          <span class="pill">
-            Café
-          </span>
-
-          <span class="pill">
-            Pet-friendly
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CONTACTO
-  ========================= -->
-
-  <section
-    class="section contact"
-    id="contacto">
-
-    <div class="container">
-
-      <div class="section-head">
-
-        <span>
-          Encuéntranos
-        </span>
-
-        <h2>
-          Ven a VEGA'S
-        </h2>
-
-        <p>
-          Contacta directamente o encuentra nuestra ubicación.
-        </p>
-
-      </div>
-
-
-      <div class="contact-grid">
-
-
-        <!-- DIRECCIÓN -->
-
-        <div class="contact-card">
-
-          <span>
-            Dirección
-          </span>
-
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Calle%20Gracia%2032%2C%2018002%20Granada%2C%20Spain"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Abrir VEGA'S CAFE BAR en Google Maps">
-
-            <strong>
-              Calle Gracia, 32<br>
-              18002 Granada
-            </strong>
-
-          </a>
-
-        </div>
-
-
-        <!-- TELÉFONO -->
-
-        <div class="contact-card">
-
-          <span>
-            Teléfono
-          </span>
-
-          <a
-            href="tel:+34697245373"
-            aria-label="Llamar a VEGA'S CAFE BAR">
-
-            <strong>
-              +34 697 24 53 73
-            </strong>
-
-          </a>
-
-        </div>
-
-
-        <!-- WHATSAPP -->
-
-        <div class="contact-card">
-
-          <span>
-            WhatsApp
-          </span>
-
-          <a
-            href="https://wa.me/34697245373"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Contactar con VEGA'S CAFE BAR por WhatsApp">
-
-            <strong>
-              Escribir por WhatsApp
-            </strong>
-
-          </a>
-
-        </div>
-
-
-        <!-- EMAIL -->
-
-        <div class="contact-card">
-
-          <span>
-            Email
-          </span>
-
-          <a
-            href="mailto:hola@vegas-cafebar.com"
-            aria-label="Enviar email a VEGA'S CAFE BAR">
-
-            <strong>
-              hola@vegas-cafebar.com
-            </strong>
-
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- BOTONES PRINCIPALES -->
-
-      <div class="actions">
-
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=Calle%20Gracia%2032%2C%2018002%20Granada%2C%20Spain"
-          class="btn btn-primary"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          ?? Ver ubicación
-
-        </a>
-
-
-        <a
-          href="https://wa.me/34697245373"
-          class="btn"
-          style="background:var(--dark);color:#fff"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          ?? WhatsApp
-
-        </a>
-
-      </div>
-
-
-      <!-- REDES SOCIALES -->
-
-      <div class="socials">
-
-        <a
-          href="https://www.instagram.com/cafe.vegas.granada/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram de VEGA'S CAFE BAR">
-
-          Instagram
-
-        </a>
-
-
-        <a
-          href="https://www.facebook.com/share/1H9NxvgsWr/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Facebook de VEGA'S CAFE BAR">
-
-          Facebook
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-  <strong>
-    VEGA'S CAFE BAR
-  </strong>
-
-  <p>
-    Café · Brunch · Momentos · Granada
-  </p>
-
-  <p style="margin-top:8px">
+    <a href="#nosotros">
+      Nosotros
+    </a>
 
     <a href="#contacto">
       Contacto
     </a>
 
-  </p>
-
-</footer>
+  </nav>
 
 
-<script>
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Abrir men&uacute;"
+    aria-expanded="false"
+    aria-controls="mainNav">
 
-  /* =========================
-     MENÚ MÓVIL
-  ========================= */
+    <span aria-hidden="true">
+      &#9776;
+    </span>
 
-  const menuToggle =
-    document.getElementById("menuToggle");
+  </button>
 
-  const mainNav =
-    document.getElementById("mainNav");
+</div>
+```
 
+  </header>
 
-  menuToggle.addEventListener(
-    "click",
-    () => {
-
-      const opened =
-        mainNav.classList.toggle("open");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(opened)
-      );
-
-      menuToggle.setAttribute(
-        "aria-label",
-        opened
-          ? "Cerrar menú"
-          : "Abrir menú"
-      );
-
-      menuToggle.textContent =
-        opened
-          ? "×"
-          : "?";
-
-    }
-  );
+  <main id="contenido">
 
 
-  mainNav
-    .querySelectorAll("a")
-    .forEach(
-      link => {
+<!-- =========================
+     HERO
+========================= -->
 
-        link.addEventListener(
-          "click",
-          () => {
+<section
+  class="hero"
+  id="inicio"
+  aria-labelledby="hero-title">
 
-            mainNav.classList.remove(
-              "open"
-            );
+  <div class="container hero-content">
 
-            menuToggle.setAttribute(
-              "aria-expanded",
-              "false"
-            );
+    <span class="eyebrow">
+      Caf&eacute; &middot; Brunch &middot; Momentos
+    </span>
 
-            menuToggle.setAttribute(
-              "aria-label",
-              "Abrir menú"
-            );
 
-            menuToggle.textContent =
-              "?";
+    <h1 id="hero-title">
 
-          }
-        );
+      VEGA'S<br>
+      CAFE BAR
 
+    </h1>
+
+
+    <p>
+      Un rinc&oacute;n con personalidad en Granada para
+      desayunar, tomar un buen caf&eacute;, disfrutar de un
+      brunch y quedarse un rato m&aacute;s.
+    </p>
+
+
+    <div class="actions">
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Calle%20Gracia%2032%2C%2018002%20Granada%2C%20Spain"
+        class="btn btn-secondary"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        &#128205; C&oacute;mo llegar
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICIOS
+========================= -->
+
+<section
+  class="section"
+  id="servicios"
+  aria-labelledby="servicios-title">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <span>
+        Una pausa con estilo
+      </span>
+
+
+      <h2 id="servicios-title">
+        Hecho para disfrutar
+      </h2>
+
+
+      <p>
+        Caf&eacute;, desayunos, brunch, meriendas y un ambiente
+        acogedor en pleno centro de Granada.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+      <article class="card">
+
+        <div
+          class="card-icon"
+          aria-hidden="true">
+
+          &#9749;
+
+        </div>
+
+
+        <h3>
+          Caf&eacute; &amp; desayuno
+        </h3>
+
+
+        <p>
+          Empieza el d&iacute;a con caf&eacute;, tostadas, opciones
+          dulces y propuestas preparadas al momento.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div
+          class="card-icon"
+          aria-hidden="true">
+
+          &#129361;
+
+        </div>
+
+
+        <h3>
+          Brunch
+        </h3>
+
+
+        <p>
+          Opciones dulces y saladas para disfrutar
+          sin prisas y compartir.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div
+          class="card-icon"
+          aria-hidden="true">
+
+          &#127856;
+
+        </div>
+
+
+        <h3>
+          Meriendas
+        </h3>
+
+
+        <p>
+          Tartas, tortitas, bebidas y peque&ntilde;os
+          caprichos para cualquier momento.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CARTA DIGITAL
+========================= -->
+
+<section
+  class="menu-banner"
+  id="carta"
+  aria-labelledby="carta-title">
+
+  <div class="container menu-grid">
+
+
+    <div>
+
+      <span class="eyebrow">
+        Nuestra carta
+      </span>
+
+
+      <h2 id="carta-title">
+        Descubre todo lo que tenemos para ti.
+      </h2>
+
+
+      <p>
+        Consulta nuestra carta digital con categor&iacute;as,
+        productos, precios y especialidades de VEGA'S.
+      </p>
+
+    </div>
+
+
+    <div class="qr-card">
+
+
+      <a
+        href="carta.html"
+        class="qr-link"
+        aria-label="Abrir carta digital">
+
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&format=png&margin=10&data=carta.html"
+          alt="C&oacute;digo QR para abrir la carta digital de VEGA'S CAFE BAR"
+          class="qr-image"
+          width="220"
+          height="220"
+          loading="lazy"
+          decoding="async"
+        >
+
+      </a>
+
+
+      <strong>
+        Carta digital
+      </strong>
+
+
+      <small>
+        Escanea el c&oacute;digo para abrirla.
+      </small>
+
+
+      <a
+        href="carta.html"
+        class="qr-button">
+
+        Ver carta
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     NOSOTROS
+========================= -->
+
+<section
+  class="section about"
+  id="nosotros"
+  aria-labelledby="nosotros-title">
+
+  <div class="container about-grid">
+
+
+    <div class="about-copy">
+
+      <span
+        class="eyebrow"
+        style="color: var(--brown);">
+
+        VEGA'S CAFE BAR
+
+      </span>
+
+
+      <h2 id="nosotros-title">
+        Un sitio para sentirte a gusto.
+      </h2>
+
+
+      <p>
+        VEGA'S CAFE BAR est&aacute; en Calle Gracia 32,
+        Granada, y combina caf&eacute;, desayunos, brunch
+        y meriendas en un ambiente cercano.
+      </p>
+
+
+      <p>
+        Una propuesta pensada para desayunar,
+        reunirse, trabajar, compartir o simplemente
+        disfrutar de un buen caf&eacute;.
+      </p>
+
+
+      <div class="pills">
+
+        <span class="pill">
+          Desayunos
+        </span>
+
+        <span class="pill">
+          Brunch
+        </span>
+
+        <span class="pill">
+          Meriendas
+        </span>
+
+        <span class="pill">
+          Caf&eacute;
+        </span>
+
+        <span class="pill">
+          Pet-friendly
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
+<section
+  class="section contact"
+  id="contacto"
+  aria-labelledby="contacto-title">
+
+  <div class="container">
+
+
+    <div class="section-head">
+
+      <span>
+        Encu&eacute;ntranos
+      </span>
+
+
+      <h2 id="contacto-title">
+        Ven a VEGA'S
+      </h2>
+
+
+      <p>
+        Contacta directamente o encuentra nuestra ubicaci&oacute;n.
+      </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+      <!-- DIRECCI&Oacute;N -->
+
+      <div class="contact-card">
+
+        <span>
+          Direcci&oacute;n
+        </span>
+
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Calle%20Gracia%2032%2C%2018002%20Granada%2C%20Spain"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Abrir VEGA'S CAFE BAR en Google Maps">
+
+          <strong>
+            Calle Gracia, 32<br>
+            18002 Granada
+          </strong>
+
+        </a>
+
+      </div>
+
+
+      <!-- TEL&Eacute;FONO -->
+
+      <div class="contact-card">
+
+        <span>
+          Tel&eacute;fono
+        </span>
+
+
+        <a
+          href="tel:+34697245373"
+          aria-label="Llamar a VEGA'S CAFE BAR">
+
+          <strong>
+            +34 697 24 53 73
+          </strong>
+
+        </a>
+
+      </div>
+
+
+      <!-- WHATSAPP -->
+
+      <div class="contact-card">
+
+        <span>
+          WhatsApp
+        </span>
+
+
+        <a
+          href="https://wa.me/34697245373"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contactar con VEGA'S CAFE BAR por WhatsApp">
+
+          <strong>
+            Escribir por WhatsApp
+          </strong>
+
+        </a>
+
+      </div>
+
+
+      <!-- EMAIL -->
+
+      <div class="contact-card">
+
+        <span>
+          Email
+        </span>
+
+
+        <a
+          href="mailto:hola@vegas-cafebar.com"
+          aria-label="Enviar email a VEGA'S CAFE BAR">
+
+          <strong>
+            hola@vegas-cafebar.com
+          </strong>
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- BOTONES -->
+
+    <div class="actions">
+
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Calle%20Gracia%2032%2C%2018002%20Granada%2C%20Spain"
+        class="btn btn-primary"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        &#128205; Ver ubicaci&oacute;n
+
+      </a>
+
+
+      <a
+        href="https://wa.me/34697245373"
+        class="btn btn-dark"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        &#128172; WhatsApp
+
+      </a>
+
+
+    </div>
+
+
+    <!-- REDES -->
+
+    <div class="socials">
+
+
+      <a
+        href="https://www.instagram.com/cafe.vegas.granada/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram de VEGA'S CAFE BAR">
+
+        Instagram
+
+      </a>
+
+
+      <a
+        href="https://www.facebook.com/share/1H9NxvgsWr/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook de VEGA'S CAFE BAR">
+
+        Facebook
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+<strong>
+  VEGA'S CAFE BAR
+</strong>
+
+
+<p>
+  Caf&eacute; &middot; Brunch &middot; Momentos &middot; Granada
+</p>
+
+
+<p style="margin-top: 8px;">
+
+  <a href="#contacto">
+    Contacto
+  </a>
+
+</p>
+
+  </footer>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    (() => {
+
+      const menuToggle =
+        document.getElementById("menuToggle");
+
+      const mainNav =
+        document.getElementById("mainNav");
+
+
+      if (!menuToggle || !mainNav) {
+        return;
       }
-    );
 
 
-  document.addEventListener(
-    "keydown",
-    event => {
+      const setMenuState = (opened) => {
 
-      if(event.key === "Escape"){
-
-        mainNav.classList.remove(
-          "open"
+        mainNav.classList.toggle(
+          "open",
+          opened
         );
+
 
         menuToggle.setAttribute(
           "aria-expanded",
-          "false"
+          String(opened)
         );
+
 
         menuToggle.setAttribute(
           "aria-label",
-          "Abrir menú"
+          opened
+            ? "Cerrar men&uacute;"
+            : "Abrir men&uacute;"
         );
 
-        menuToggle.textContent =
-          "?";
 
-      }
+        const icon =
+          menuToggle.querySelector("span");
 
-    }
-  );
 
-</script>
+        if (icon) {
 
+          icon.innerHTML =
+            opened
+              ? "&#10005;"
+              : "&#9776;";
+
+        }
+
+      };
+
+
+      menuToggle.addEventListener(
+        "click",
+        () => {
+
+          const opened =
+            !mainNav.classList.contains("open");
+
+          setMenuState(opened);
+
+        }
+      );
+
+
+      mainNav
+        .querySelectorAll("a")
+        .forEach((link) => {
+
+          link.addEventListener(
+            "click",
+            () => {
+
+              setMenuState(false);
+
+            }
+          );
+
+        });
+
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+
+          if (event.key === "Escape") {
+
+            setMenuState(false);
+
+            menuToggle.focus();
+
+          }
+
+        }
+      );
+
+
+      document.addEventListener(
+        "click",
+        (event) => {
+
+          const clickedInsideMenu =
+            mainNav.contains(event.target);
+
+          const clickedToggle =
+            menuToggle.contains(event.target);
+
+
+          if (
+            mainNav.classList.contains("open") &&
+            !clickedInsideMenu &&
+            !clickedToggle
+          ) {
+
+            setMenuState(false);
+
+          }
+
+        }
+      );
+
+    })();
+
+  </script>
 
 </body>
+
 </html>
